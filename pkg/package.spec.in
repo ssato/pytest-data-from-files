@@ -1,0 +1,48 @@
+%global pkgname pytest-fixtures-from-files
+
+%global desc \
+pytest plugin to provide fixtures from files loaded automatically.
+
+Name:           python-%{pkgname}
+Version:        @VERSION@
+Release:        @RELEASE@
+Summary:        pytest plugin to provide fixtures from files loaded automatically
+License:        MIT
+URL:            https://github.com/ssato/%{name}
+Source0:        %{url}/archive/RELEASE_%{version}.tar.gz
+BuildArch:      noarch
+BuildRequires:  python3-pytest
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+
+%description    %{desc}
+
+%package -n python3-%{pkgname}
+Summary:        %{summary}
+Requires:       python3-pytest
+%{?python_provide:%python_provide python3-%{pkgname}}
+
+%description -n python3-%{pkgname} %{desc}
+
+%prep
+%autosetup -n %{pkgname}-%{version}
+
+%build
+%py3_build
+
+%install
+%py3_install
+
+%if %{with tests}
+%check
+tox -e py$(python -c "import sys; sys.stdout.write(sys.version[:3].replace('.', ''))")
+%endif
+
+%files -n python3-%{pkgname}
+%doc README.rst
+%license LICENSE.MIT
+%{python3_sitelib}/*
+
+%changelog
+* Sun Oct  3 2021 Satoru SATOH <satoru.satoh@gmail.com> - 0.1.0-1
+- Initial packaging
