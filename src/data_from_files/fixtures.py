@@ -30,8 +30,14 @@ def module_info(request: pytest.FixtureRequest):
 @pytest.fixture
 def test_data(module_info, data_pattern):
     """Fixture provides test data loaded from files automatically."""
-    return list(
-        load.each_data_under_dir(module_info.datadir, data_pattern)
-    )
+    if module_info.subdirs:
+        return list(
+            load.each_data_under_dir(
+                module_info.datadir / subdir, data_pattern
+            )
+            for subdir in module_info.subdirs
+        )
+
+    return list(load.each_data_under_dir(module_info.datadir, data_pattern))
 
 # vim:sw=4:ts=4:et:
