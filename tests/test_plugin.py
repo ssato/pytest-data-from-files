@@ -13,7 +13,7 @@ def test_plugin_installed(pytestconfig):
 
 def test_plugin(test_data):
     assert test_data
-    assert len(test_data) == 1, test_data  # see tests/plugin/.
+    assert len(test_data) == 1, test_data  # see tests/data/plugin/.
 
     basename = utils.get_basename(__file__)
     datadir = constants.DATADIR / basename
