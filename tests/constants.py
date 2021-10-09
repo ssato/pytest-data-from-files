@@ -11,7 +11,7 @@ CURDIR = pathlib.Path(__file__).parent
 DATADIR: pathlib.Path = CURDIR / 'data'
 
 # .. seealso:: `~data_from_files.constants.DATA_PATTERN`
-DATA_PATTERN: str = '**/*.*'
+DATA_PATTERN: str = '*.*'
 
 # Example data for test cases.
 DATA: str = '3.1415'
