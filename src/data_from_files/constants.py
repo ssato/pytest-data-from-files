@@ -13,7 +13,7 @@ OPT_DATA_PATTERN: str = '--data--pattern'
 
 TEST_ROOT: str = 'tests'
 DATADIR_NAME: str = 'data'
-DATA_PATTERN: str = '*.*'
+DATA_PATTERN: str = '**/*.*'
 
 NAME_PATTERN: typing.Pattern = re.compile(
     r'^test_([^.]+)\.py.*$',
