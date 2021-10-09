@@ -7,7 +7,7 @@ import typing
 
 import pytest
 
-from . import constants, load, modinfo
+from . import constants, loader, modinfo
 
 if typing.TYPE_CHECKING:
     import _pytest
@@ -15,7 +15,10 @@ if typing.TYPE_CHECKING:
 
 @pytest.fixture(scope='session')
 def data_pattern(pytestconfig: '_pytest.config.Config'):
-    """Fixture provides glob path pattern for test data files."""
+    """Fixture provides glob path pattern for test data files.
+
+    .. todo:: This does not look worked.
+    """
     return pytestconfig.getoption(constants.OPT_DATA_PATTERN)
 
 
@@ -28,16 +31,18 @@ def module_info(request: pytest.FixtureRequest):
 # .. note:: To disable pylint's warning about the reuse of fixture.
 # pylint: disable=redefined-outer-name
 @pytest.fixture
-def test_data(module_info, data_pattern):
+def test_data(module_info, pytestconfig):
     """Fixture provides test data loaded from files automatically."""
+    data_pattern = pytestconfig.getoption(constants.OPT_DATA_PATTERN)
+
     if module_info.subdirs:
         return list(
-            load.each_data_under_dir(
+            list(loader.each_data_under_dir(
                 module_info.datadir / subdir, data_pattern
-            )
+            ))
             for subdir in module_info.subdirs
         )
 
-    return list(load.each_data_under_dir(module_info.datadir, data_pattern))
+    return list(loader.each_data_under_dir(module_info.datadir, data_pattern))
 
 # vim:sw=4:ts=4:et:
