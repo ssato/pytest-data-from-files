@@ -8,7 +8,7 @@ import pathlib
 
 import pytest
 
-import data_from_files.load as TT
+import data_from_files.loader as TT
 
 from . import constants
 
