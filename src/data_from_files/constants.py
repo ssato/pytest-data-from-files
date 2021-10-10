@@ -8,8 +8,8 @@ import typing
 
 
 OPT_TEST_ROOT: str = '--test-root'
-OPT_DATADIR_NAME: str = '--data-dirname'
-OPT_DATA_PATTERN: str = '--data--pattern'
+OPT_DATADIR_NAME: str = '--test-data-dirname'
+OPT_DATA_PATTERN: str = '--test-data-pattern'
 
 TEST_ROOT: str = 'tests'
 DATADIR_NAME: str = 'data'
