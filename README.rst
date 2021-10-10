@@ -1,15 +1,15 @@
 Overview
 ==========
 
-.. image:: https://img.shields.io/pypi/v/pytest_data_from_files.svg
+.. .. image:: https://img.shields.io/pypi/v/pytest_data_from_files.svg
    :target: https://pypi.python.org/pypi/pytest_data_from_files/
    :alt: [Latest Version]
 
-.. image:: https://img.shields.io/pypi/pyversions/pytest_data_from_files.svg
+.. .. image:: https://img.shields.io/pypi/pyversions/pytest_data_from_files.svg
    :target: https://pypi.python.org/pypi/pytest_data_from_files/
    :alt: [Python versions]
 
-.. image:: https://img.shields.io/pypi/l/pytest_data_from_files.svg
+.. .. image:: https://img.shields.io/pypi/l/pytest_data_from_files.svg
    :target: https://pypi.python.org/pypi/pytest_data_from_files/
    :alt: MIT License
 
