@@ -89,7 +89,8 @@ def load_from_path(path: pathlib.Path,
 
 def each_data_under_dir(datadir: pathlib.Path,
                         pattern: str,
-                        load_fn: typing.Optional[typing.Callable] = None
+                        load_fn: typing.Optional[typing.Callable] = None,
+                        safe: bool = True
                         ) -> typing.Iterator[datatypes.DataInfo]:
     """Load data from files under ``datadir`` match with ``pattern``."""
     if not datadir.is_dir():
@@ -104,10 +105,14 @@ def each_data_under_dir(datadir: pathlib.Path,
 
     # Load data from files under ``datadir`` recursively.
     for path in sorted(datadir.glob(pattern)):
-        yield datatypes.DataInfo(
-            data=_load(path),
-            path=path,
-            datadir=datadir
-        )
+        if safe:
+            try:
+                data = _load(path)
+            except (ValueError, RuntimeError) as exc:
+                warnings.warn(str(exc))
+        else:
+            data = _load(path)
+
+        yield datatypes.DataInfo(data=data, path=path, datadir=datadir)
 
 # vim:sw=4:ts=4:et:

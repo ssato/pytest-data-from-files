@@ -136,6 +136,8 @@ def test_load_datasets_from_dir_failures(tmp_path):
     path.touch()
 
     with pytest.raises(EXCS):
-        _ = list(TT.each_data_under_dir(path, constants.DATA_PATTERN))
+        _ = list(
+            TT.each_data_under_dir(path, constants.DATA_PATTERN, safe=False)
+        )
 
 # vim:sw=4:ts=4:et:
