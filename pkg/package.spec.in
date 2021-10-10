@@ -1,4 +1,5 @@
 %global pkgname pytest-fixtures-from-files
+%global srcname pytest_fixtures_from_files
 
 %global desc \
 pytest plugin to provide fixtures from files loaded automatically.
@@ -9,7 +10,8 @@ Release:        @RELEASE@
 Summary:        pytest plugin to provide fixtures from files loaded automatically
 License:        MIT
 URL:            https://github.com/ssato/%{name}
-Source0:        %{url}/archive/RELEASE_%{version}.tar.gz
+# Source0:        %{url}/archive/RELEASE_%{version}.tar.gz
+Source0:        %{srcname}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  python3-pytest
 BuildRequires:  python3-devel
