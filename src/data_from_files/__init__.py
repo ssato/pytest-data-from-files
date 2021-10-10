@@ -7,12 +7,12 @@ from .datatypes import (
     ModuleInfo, DataInfo
 )
 from .fixtures import (
-    module_info, test_data
+    test_data_info, test_data
 )
 from .hooks import pytest_addoption
 
 __all__ = [
     'ModuleInfo', 'DataInfo',
-    'module_info', 'test_data',
+    'test_data_info', 'test_data',
     'pytest_addoption',
 ]
