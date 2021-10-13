@@ -1,17 +1,15 @@
-%global pkgname pytest-fixtures-from-files
-%global srcname pytest_fixtures_from_files
+%global pkgname pytest-data-from-files
 
 %global desc \
-pytest plugin to provide fixtures from files loaded automatically.
+pytest plugin to provide test data from files loaded automatically.
 
 Name:           python-%{pkgname}
 Version:        @VERSION@
 Release:        @RELEASE@
-Summary:        pytest plugin to provide fixtures from files loaded automatically
+Summary:        pytest plugin to provide test data from files loaded automatically
 License:        MIT
 URL:            https://github.com/ssato/%{name}
-# Source0:        %{url}/archive/RELEASE_%{version}.tar.gz
-Source0:        %{srcname}-%{version}.tar.gz
+Source0:        %{pkgname}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  python3-pytest
 BuildRequires:  python3-devel
