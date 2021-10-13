@@ -12,7 +12,7 @@ from .fixtures import (
 from .hooks import pytest_addoption
 
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 __all__ = [
     'ModuleInfo', 'DataInfo',
     'test_data_info', 'test_data',
